@@ -1,0 +1,57 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Lemongrass Island</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body { font-family: Arial, sans-serif; background: #f8f8f8; margin: 0; padding: 0; }
+        header { background: #3c6e47; color: white; padding: 2rem; text-align: center; }
+        h1 { margin: 0; font-size: 2.8rem; }
+        p.tagline { font-size: 1.2rem; font-style: italic; margin-top: 0.5rem; }
+        main { padding: 2rem; text-align: center; }
+        .product-image { max-width: 300px; margin-bottom: 1rem; }
+        .btn { display: inline-block; background: #3c6e47; color: white; padding: 0.8rem 1.5rem; text-decoration: none; border-radius: 8px; font-weight: bold; }
+        form { margin-top: 2rem; max-width: 400px; margin-left: auto; margin-right: auto; text-align: left; }
+        label { display: block; margin-top: 1rem; font-weight: bold; }
+        input, select { width: 100%; padding: 0.6rem; margin-top: 0.3rem; border-radius: 5px; border: 1px solid #ccc; }
+        .submit-btn { margin-top: 1.5rem; background: #3c6e47; color: white; border: none; padding: 0.8rem; width: 100%; border-radius: 6px; cursor: pointer; }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Lemongrass Island</h1>
+        <p class="tagline">Luxury Streetwear. Nature-Inspired. Pre-Order Now.</p>
+    </header>
+    <main>
+        <img src="https://via.placeholder.com/300x300.png?text=T-Shirt+Design" alt="T-shirt" class="product-image">
+        <p><strong>Limited Edition T-Shirt</strong></p>
+        <a href="#order" class="btn">Pre-Order Now</a>
+
+        <form id="order">
+            <h2>Pre-Order Form</h2>
+            <label for="name">Full Name</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="email">Email Address</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="size">Size</label>
+            <select id="size" name="size" required>
+                <option value="">Select Size</option>
+                <option value="S">S</option>
+                <option value="M">M</option>
+                <option value="L">L</option>
+                <option value="XL">XL</option>
+                <option value="XXL">XXL</option>
+            </select>
+
+            <label for="quantity">Quantity</label>
+            <input type="number" id="quantity" name="quantity" min="1" value="1" required>
+
+            <button type="submit" class="submit-btn">Submit Pre-Order</button>
+        </form>
+    </main>
+</body>
+</html>
