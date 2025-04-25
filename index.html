@@ -1,63 +1,127 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lemongrass Island</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f7f7f7;
-            color: #333;
-            margin: 0;
-            padding: 0;
-            text-align: center;
-        }
-        header {
-            background-color: #1a1a1a;
-            padding: 20px;
-            color: white;
-        }
-        h1 {
-            margin: 0;
-            font-size: 2.5rem;
-        }
-        .tagline {
-            font-style: italic;
-            color: #c0ffb3;
-        }
-        section {
-            padding: 40px;
-        }
-        .btn {
-            display: inline-block;
-            background-color: #c0ffb3;
-            color: #000;
-            padding: 10px 20px;
-            text-decoration: none;
-            border-radius: 5px;
-            font-weight: bold;
-        }
-        footer {
-            background-color: #1a1a1a;
-            color: white;
-            padding: 10px;
-            font-size: 0.9rem;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lemongrass Island</title>
+  <link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@300;600&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Urbanist', sans-serif;
+      background-color: #f5f5f5;
+      color: #222;
+    }
+    header {
+      background-color: #000;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin: 0 15px;
+    }
+    .hero {
+      background: url('https://your-hero-image-url') no-repeat center center/cover;
+      padding: 100px 20px;
+      text-align: center;
+      color: white;
+    }
+    .section {
+      padding: 50px 20px;
+      max-width: 1000px;
+      margin: auto;
+    }
+    .products {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
+    .product-card {
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      padding: 20px;
+      text-align: center;
+    }
+    .product-card img {
+      width: 100%;
+      border-radius: 8px;
+    }
+    .btn {
+      display: inline-block;
+      background: #333;
+      color: white;
+      padding: 10px 20px;
+      margin-top: 10px;
+      border-radius: 8px;
+      text-decoration: none;
+    }
+    footer {
+      background: #000;
+      color: white;
+      text-align: center;
+      padding: 20px;
+    }
+  </style>
 </head>
 <body>
-    <header>
-        <h1>Lemongrass Island</h1>
-        <p class="tagline">Where Streetwear Meets Modern Luxury</p>
-    </header>
-    <section>
-        <h2>Coming Soon</h2>
-        <p>Exclusive pre-order for our first drop: Premium Tees & Hoodies</p>
-        <a class="btn" href="mailto:preorder@lemongrassisland.com">Pre-Order Now</a>
-    </section>
-    <footer>
-        &copy; 2025 Lemongrass Island. All rights reserved.
-    </footer>
+  <header>
+    <h1>Lemongrass Island</h1>
+    <nav>
+      <a href="#shop">Shop</a>
+      <a href="#about">About</a>
+      <a href="#preorder">Pre-Order</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <div class="hero">
+    <h2>Luxury Streetwear for Modern Souls</h2>
+    <p>Crafted with identity. Inspired by nature. Rooted in culture.</p>
+  </div>
+
+  <section class="section" id="shop">
+    <h2>Our Products</h2>
+    <div class="products">
+      <div class="product-card">
+        <img src="https://your-tshirt-image-url" alt="T-shirt">
+        <h3>Classic T-Shirt</h3>
+        <p>Premium heavyweight cotton. Bold design.</p>
+        <a href="#preorder" class="btn">Pre-Order Now</a>
+      </div>
+      <div class="product-card">
+        <img src="https://your-hoodie-image-url" alt="Hoodie">
+        <h3>Signature Hoodie</h3>
+        <p>Luxury fleece. Embroidered logo. Ultimate comfort.</p>
+        <a href="#preorder" class="btn">Pre-Order Now</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="about">
+    <h2>About Lemongrass Island</h2>
+    <p>Lemongrass Island is more than just a brand — it’s where luxury meets identity. Born from a passion to create high-end streetwear that tells a story of culture, nature, and modern relevance.</p>
+  </section>
+
+  <section class="section" id="preorder">
+    <h2>Pre-Order</h2>
+    <p>Secure your limited pieces now. Fill out the form and we’ll get in touch!</p>
+    <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSeExampleFormURL/viewform?embedded=true" width="100%" height="600" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
+  </section>
+
+  <section class="section" id="contact">
+    <h2>Contact Us</h2>
+    <p>Instagram: <a href="https://instagram.com/lemongrassisland" target="_blank">@lemongrassisland</a></p>
+    <p>Email: lemongrassisland@gmail.com</p>
+    <p>WhatsApp: <a href="https://wa.me/60123456789" target="_blank">+60 12-345 6789</a></p>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Lemongrass Island. All rights reserved.</p>
+  </footer>
 </body>
 </html>
