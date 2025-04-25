@@ -1,0 +1,21 @@
+import React from "react";
+import { useHistory } from "react-router-dom";
+
+const Checkout = () => {
+  const history = useHistory();
+
+  const handlePayment = () => {
+    // Simulate payment processing
+    alert("Pembayaran berjaya!");
+    history.push("/"); // Redirect back to home after payment
+  };
+
+  return (
+    <div>
+      <h2>Checkout</h2>
+      <button onClick={handlePayment}>Bayar Sekarang</button>
+    </div>
+  );
+};
+
+export default Checkout;
