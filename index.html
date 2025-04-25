@@ -1,33 +1,11 @@
-import React from "react";
-
-const ProductCard = ({ product, stock, addToCart }) => {
-  const productData = {
-    tshirt: {
-      name: "Classic T-Shirt",
-      price: "RM 89",
-      image: "https://i.imgur.com/l4lGJDi.png",
-    },
-    hoodie: {
-      name: "Signature Hoodie",
-      price: "RM 179",
-      image: "https://i.imgur.com/kwHD7cU.png",
-    },
-  };
-
-  return (
-    <div className="product-card">
-      <img src={productData[product].image} alt={productData[product].name} />
-      <h3>{productData[product].name}</h3>
-      <p><strong>{productData[product].price}</strong></p>
-      <p>Stok: {stock[product]}</p>
-      <button 
-        onClick={() => addToCart(product)} 
-        disabled={stock[product] === 0}
-      >
-        Pre-Order & Bayar Sekarang
-      </button>
-    </div>
-  );
-};
-
-export default ProductCard;
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lemongrass Island</title>
+</head>
+<body>
+  <div id="root"></div>
+</body>
+</html>
