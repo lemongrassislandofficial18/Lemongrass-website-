@@ -1,158 +1,43 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Lemongrass Island</title>
-  <link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@300;600&display=swap" rel="stylesheet">
-  <style>
-    body {
-      margin: 0;
-      font-family: 'Urbanist', sans-serif;
-      background-color: #f5f5f5;
-      color: #222;
-    }
-    header {
-      background-color: #000;
-      color: white;
-      padding: 20px;
-      text-align: center;
-    }
-    nav a {
-      color: white;
-      text-decoration: none;
-      margin: 0 15px;
-    }
-    .hero {
-      background: url('https://your-hero-image-url') no-repeat center center/cover;
-      padding: 100px 20px;
-      text-align: center;
-      color: white;
-    }
-    .section {
-      padding: 50px 20px;
-      max-width: 1000px;
-      margin: auto;
-    }
-    .products {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 20px;
-    }
-    .product-card {
-      background: white;
-      border-radius: 12px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-      padding: 20px;
-      text-align: center;
-    }
-    .product-card img {
-      width: 100%;
-      border-radius: 8px;
-    }
-    .btn {
-      display: inline-block;
-      background: #333;
-      color: white;
-      padding: 10px 20px;
-      margin-top: 10px;
-      border-radius: 8px;
-      text-decoration: none;
-    }
-    footer {
-      background: #000;
-      color: white;
-      text-align: center;
-      padding: 20px;
-    }
-    .cart-info {
-      margin-top: 15px;
-      font-size: 0.9em;
-      color: #888;
-    }
-  </style>
-  <script>
-    let stock = {
-      tshirt: 20,
-      hoodie: 10
-    };
+import React, { useState } from "react";
+import ProductCard from "./ProductCard";
+import Cart from "./Cart";
 
-    function order(product) {
-      if (stock[product] > 0) {
-        stock[product]--;
-        alert("Pesanan diterima. Stok " + product + " kini tinggal " + stock[product]);
-      } else {
-        alert("Maaf, stok " + product + " telah habis.");
-      }
-      updateStockDisplay();
-    }
+const App = () => {
+  const [cart, setCart] = useState([]);
+  const [stock, setStock] = useState({
+    tshirt: 20,
+    hoodie: 10,
+  });
 
-    function updateStockDisplay() {
-      document.getElementById("tshirt-stock").innerText = "Stok: " + stock.tshirt;
-      document.getElementById("hoodie-stock").innerText = "Stok: " + stock.hoodie;
-    }
+  const handleAddToCart = (product) => {
+    const newCart = [...cart, product];
+    setCart(newCart);
+    const newStock = { ...stock };
+    newStock[product] -= 1;  // Decrease stock when added to cart
+    setStock(newStock);
+  };
 
-    window.onload = updateStockDisplay;
-  </script>
-</head>
-<body>
-  <header>
-    <h1>Lemongrass Island</h1>
-    <nav>
-      <a href="#shop">Shop</a>
-      <a href="#about">About</a>
-      <a href="#preorder">Pre-Order</a>
-      <a href="#contact">Contact</a>
-    </nav>
-  </header>
-
-  <div class="hero">
-    <h2>Luxury Streetwear for Modern Souls</h2>
-    <p>Crafted with identity. Inspired by nature. Rooted in culture.</p>
-  </div>
-
-<section class="section" id="shop">
-  <h2>Our Products</h2>
-  <div class="products">
-    <div class="product-card">
-      <img src="https://i.imgur.com/l4lGJDi.png" alt="T-shirt Lemongrass">
-      <h3>Classic T-Shirt</h3>
-      <p>Premium heavyweight cotton. Bold design.</p>
-      <p><strong>Harga: RM89</strong></p>
-      <p id="tshirt-stock">Stok: -</p>
-      <a href="https://toyyibpay.com/link-bayaran-tshirt" class="btn" target="_blank" onclick="order('tshirt')">Pre-Order & Bayar Sekarang</a>
+  return (
+    <div>
+      <header>
+        <h1>Lemongrass Island</h1>
+      </header>
+      <div>
+        <h2>Our Products</h2>
+        <ProductCard 
+          product="tshirt" 
+          stock={stock} 
+          addToCart={handleAddToCart} 
+        />
+        <ProductCard 
+          product="hoodie" 
+          stock={stock} 
+          addToCart={handleAddToCart} 
+        />
+      </div>
+      <Cart cart={cart} />
     </div>
-    <div class="product-card">
-      <img src="https://i.imgur.com/kwHD7cU.png" alt="Hoodie Lemongrass">
-      <h3>Signature Hoodie</h3>
-      <p>Luxury fleece. Embroidered logo. Ultimate comfort.</p>
-      <p><strong>Harga: RM179</strong></p>
-      <p id="hoodie-stock">Stok: -</p>
-      <a href="https://toyyibpay.com/link-bayaran-hoodie" class="btn" target="_blank" onclick="order('hoodie')">Pre-Order & Bayar Sekarang</a>
-    </div>
-  </div>
-</section>
+  );
+};
 
-  <section class="section" id="about">
-    <h2>About Lemongrass Island</h2>
-    <p>Lemongrass Island is more than just a brand — it’s where luxury meets identity. Born from a passion to create high-end streetwear that tells a story of culture, nature, and modern relevance.</p>
-  </section>
-
-  <section class="section" id="preorder">
-    <h2>Pre-Order</h2>
-    <p>Secure your limited pieces now. Fill out the form and we’ll get in touch!</p>
-    <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSeExampleFormURL/viewform?embedded=true" width="100%" height="600" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
-  </section>
-
-  <section class="section" id="contact">
-    <h2>Contact Us</h2>
-    <p>Instagram: <a href="https://instagram.com/lemongrassisland_official" target="_blank">@lemongrassisland_official</a></p>
-    <p>Email: official lemongrassisland@gmail.com</p>
-    <p>WhatsApp: <a href="https://wa.me/60137007539" target="_blank">+60 13-700 7539</a></p>
-  </section>
-
-  <footer>
-    <p>&copy; 2025 Lemongrass Island. All rights reserved.</p>
-  </footer>
-</body>
-</html>
+export default App;
