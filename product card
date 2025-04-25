@@ -1,0 +1,50 @@
+import React from "react";
+import Island from "./components/Island";
+import Product from "./components/Product";
+
+const App = () => {
+  const handlePreOrder = () => {
+    alert("You clicked pre-order!");
+  };
+
+  return (
+    <div>
+      <header>
+        <h1>Lemongrass Island</h1>
+        <nav>
+          <a href="#shop">Shop</a>
+          <a href="#about">About</a>
+          <a href="#contact">Contact</a>
+        </nav>
+      </header>
+
+      <Island />
+
+      <section id="shop">
+        <h2>Our Products</h2>
+        <div className="products">
+          <Product 
+            image="/path-to-your-tshirt-image.jpg"
+            title="Classic T-Shirt"
+            description="Premium heavyweight cotton. Bold design."
+            price="RM89"
+            onPreOrder={handlePreOrder}
+          />
+          <Product 
+            image="/path-to-your-hoodie-image.jpg"
+            title="Signature Hoodie"
+            description="Luxury fleece. Embroidered logo. Ultimate comfort."
+            price="RM179"
+            onPreOrder={handlePreOrder}
+          />
+        </div>
+      </section>
+
+      <footer>
+        <p>&copy; 2025 Lemongrass Island. All rights reserved.</p>
+      </footer>
+    </div>
+  );
+};
+
+export default App;
