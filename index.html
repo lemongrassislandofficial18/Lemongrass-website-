@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -66,7 +65,35 @@
       text-align: center;
       padding: 20px;
     }
+    .cart-info {
+      margin-top: 15px;
+      font-size: 0.9em;
+      color: #888;
+    }
   </style>
+  <script>
+    let stock = {
+      tshirt: 20,
+      hoodie: 10
+    };
+
+    function order(product) {
+      if (stock[product] > 0) {
+        stock[product]--;
+        alert("Pesanan diterima. Stok " + product + " kini tinggal " + stock[product]);
+      } else {
+        alert("Maaf, stok " + product + " telah habis.");
+      }
+      updateStockDisplay();
+    }
+
+    function updateStockDisplay() {
+      document.getElementById("tshirt-stock").innerText = "Stok: " + stock.tshirt;
+      document.getElementById("hoodie-stock").innerText = "Stok: " + stock.hoodie;
+    }
+
+    window.onload = updateStockDisplay;
+  </script>
 </head>
 <body>
   <header>
@@ -92,15 +119,16 @@
       <h3>Classic T-Shirt</h3>
       <p>Premium heavyweight cotton. Bold design.</p>
       <p><strong>Harga: RM89</strong></p>
-      <a href="https://toyyibpay.com/link-bayaran-tshirt" class="btn" target="_blank">Pre-Order & Bayar Sekarang</a>
+      <p id="tshirt-stock">Stok: -</p>
+      <a href="https://toyyibpay.com/link-bayaran-tshirt" class="btn" target="_blank" onclick="order('tshirt')">Pre-Order & Bayar Sekarang</a>
     </div>
     <div class="product-card">
-      <img 
-src="https://i.imgur.com/kwHD7cU.png" alt="Hoodie Lemongrass">
+      <img src="https://i.imgur.com/kwHD7cU.png" alt="Hoodie Lemongrass">
       <h3>Signature Hoodie</h3>
       <p>Luxury fleece. Embroidered logo. Ultimate comfort.</p>
       <p><strong>Harga: RM179</strong></p>
-      <a href="https://toyyibpay.com/link-bayaran-hoodie" class="btn" target="_blank">Pre-Order & Bayar Sekarang</a>
+      <p id="hoodie-stock">Stok: -</p>
+      <a href="https://toyyibpay.com/link-bayaran-hoodie" class="btn" target="_blank" onclick="order('hoodie')">Pre-Order & Bayar Sekarang</a>
     </div>
   </div>
 </section>
