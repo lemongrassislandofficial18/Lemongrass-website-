@@ -1,0 +1,28 @@
+import React from "react";
+
+const Product = ({ image, title, description, price, onPreOrder }) => {
+  return (
+    <div className="product-card">
+      <img src={image} alt={title} />
+      <h3>{title}</h3>
+      <p>{description}</p>
+      <p><strong>{price}</strong></p>
+      <button onClick={onPreOrder}>Pre-Order & Bayar Sekarang</button>
+    </div>
+  );
+};
+
+export default Product;
+
+import React from "react";
+
+const Island = () => {
+  return (
+    <div className="hero" style={{ backgroundImage: "url('/path-to-your-island-image.jpg')" }}>
+      <h2>Luxury Streetwear for Modern Souls</h2>
+      <p>Crafted with identity. Inspired by nature. Rooted in culture.</p>
+    </div>
+  );
+};
+
+export default Island;
